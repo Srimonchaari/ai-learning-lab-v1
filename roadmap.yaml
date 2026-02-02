@@ -1,0 +1,187 @@
+version: 1
+goal: "Train beginners to become AI systems engineers through daily, structured learning"
+
+levels:
+  - level: 0
+    name: engineering_foundations
+    description: "Core software skills required before touching AI systems"
+    concepts:
+      - id: python_basics
+        title: Python Basics for Engineers
+        category: foundations
+        prereqs: []
+        keywords: [python, basics, functions, loops, scripting]
+        outcome: "Write simple, readable Python scripts"
+        mini_project: "Write a CLI script that fetches data from an API and prints JSON output"
+
+      - id: python_modules_env
+        title: Python Modules and Virtual Environments
+        category: foundations
+        prereqs: [python_basics]
+        keywords: [virtualenv, venv, pip, requirements.txt, dependency, python packaging]
+        outcome: "Manage dependencies safely"
+        mini_project: "Create a virtualenv and package a small utility module"
+
+      - id: http_and_rest
+        title: HTTP, REST APIs, and JSON
+        category: foundations
+        prereqs: [python_basics]
+        keywords: [http, rest, api, json, request, response, status code]
+        outcome: "Understand how services communicate"
+        mini_project: "Call a public REST API and parse the response"
+
+      - id: git_basics
+        title: Git and Version Control
+        category: foundations
+        prereqs: []
+        keywords: [git, github, version control, commit, branch, pull request]
+        outcome: "Track and manage code changes"
+        mini_project: "Initialize a repo and push code to GitHub"
+
+  - level: 1
+    name: llm_fundamentals
+    description: "Understanding how LLMs work at a system level"
+    concepts:
+      - id: intro_to_ai_ml_dl
+        title: AI vs ML vs Deep Learning
+        category: llm
+        prereqs: [python_basics]
+        keywords: [artificial intelligence, machine learning, deep learning, neural network]
+        outcome: "Differentiate AI paradigms clearly"
+        mini_project: "Map 10 real-world examples to AI, ML, or DL"
+
+      - id: intro_to_llms
+        title: Large Language Models Basics
+        category: llm
+        prereqs: [intro_to_ai_ml_dl, http_and_rest]
+        keywords: [large language model, llm, transformer, inference, prompting]
+        outcome: "Understand what LLMs are and are not"
+        mini_project: "Write a small note comparing LLM vs traditional ML for one use case"
+
+      - id: tokens_and_context
+        title: Tokens and Context Windows
+        category: llm
+        prereqs: [intro_to_llms]
+        keywords: [tokens, context window, prompt length, truncation]
+        outcome: "Reason about input limits and truncation"
+        mini_project: "Measure token usage for 5 prompts and report the differences"
+
+      - id: prompt_structure
+        title: Prompt Structure and Constraints
+        category: llm
+        prereqs: [intro_to_llms]
+        keywords: [prompt, instructions, constraints, format, examples]
+        outcome: "Write clear, controlled prompts"
+        mini_project: "Rewrite 3 vague prompts into structured prompts with constraints"
+
+      - id: llm_api_calls
+        title: Calling LLM APIs Safely
+        category: llm
+        prereqs: [http_and_rest, prompt_structure]
+        keywords: [rate limit, retries, timeout, backoff, api client]
+        outcome: "Call LLM APIs with retries/timeouts and predictable behavior"
+        mini_project: "Build a small client wrapper that retries on failures and logs latency"
+
+  - level: 2
+    name: embeddings_and_retrieval
+    description: "Memory and search systems for LLMs (core AI engineering skill)"
+    concepts:
+      - id: embeddings_intro
+        title: Embeddings and Vector Representations
+        category: rag
+        prereqs: [intro_to_llms]
+        keywords: [embeddings, vector, semantic search, representation]
+        outcome: "Understand semantic representation"
+        mini_project: "Generate embeddings for 20 sentences and store them in a file"
+
+      - id: similarity_search
+        title: Vector Similarity and Distance Metrics
+        category: rag
+        prereqs: [embeddings_intro]
+        keywords: [cosine similarity, dot product, euclidean distance, nearest neighbor]
+        outcome: "Compare vectors meaningfully"
+        mini_project: "Implement cosine similarity manually and test it on 10 pairs"
+
+      - id: vector_databases
+        title: Vector Databases and Indexing
+        category: rag
+        prereqs: [similarity_search]
+        keywords: [faiss, vector database, indexing, ANN, nearest neighbor search]
+        outcome: "Store and retrieve embeddings efficiently"
+        mini_project: "Build a local FAISS index and query top-k results"
+
+      - id: rag_basics
+        title: Retrieval-Augmented Generation (RAG)
+        category: rag
+        prereqs: [vector_databases, llm_api_calls]
+        keywords: [rag, retrieval augmented generation, chunking, context injection]
+        outcome: "Combine search with generation"
+        mini_project: "Answer questions from 10 documents using retrieve-then-generate"
+
+  - level: 3
+    name: production_systems
+    description: "Making AI systems reliable, observable, and cost-aware"
+    concepts:
+      - id: logging_and_monitoring
+        title: Logging and Monitoring AI Systems
+        category: production
+        prereqs: [llm_api_calls]
+        keywords: [logging, monitoring, observability, tracing, metrics]
+        outcome: "Observe system behavior"
+        mini_project: "Add structured logs and latency timing to your LLM client wrapper"
+
+      - id: latency_and_caching
+        title: Latency, Caching, and Performance
+        category: production
+        prereqs: [logging_and_monitoring]
+        keywords: [latency, caching, throughput, performance, optimization]
+        outcome: "Reduce response time"
+        mini_project: "Add a simple cache for repeated prompts and measure latency improvements"
+
+      - id: cost_management
+        title: Cost and Token Management
+        category: production
+        prereqs: [tokens_and_context, llm_api_calls]
+        keywords: [cost, pricing, token usage, finops, budget]
+        outcome: "Control inference cost"
+        mini_project: "Track estimated cost per request and log it with each call"
+
+  - level: 4
+    name: safety_and_governance
+    description: "Security, safety, and responsible AI"
+    concepts:
+      - id: prompt_injection
+        title: Prompt Injection and Attacks
+        category: safety
+        prereqs: [rag_basics]
+        keywords: [prompt injection, jailbreak, system prompt, security]
+        outcome: "Identify and mitigate attacks"
+        mini_project: "Create a small prompt-injection test and implement a basic defense"
+
+      - id: data_privacy
+        title: Data Privacy and PII Handling
+        category: safety
+        prereqs: [http_and_rest]
+        keywords: [privacy, pii, redaction, compliance, data protection]
+        outcome: "Protect sensitive data"
+        mini_project: "Write a function that detects and masks common PII patterns"
+
+  - level: 5
+    name: deployment_and_scaling
+    description: "Shipping AI systems"
+    concepts:
+      - id: api_service
+        title: Serving AI Systems via APIs
+        category: deployment
+        prereqs: [http_and_rest, llm_api_calls, logging_and_monitoring]
+        keywords: [fastapi, api service, endpoint, deployment]
+        outcome: "Expose AI as a service"
+        mini_project: "Build a FastAPI endpoint that wraps your LLM client and logs requests"
+
+      - id: background_jobs
+        title: Cron Jobs and Background Tasks
+        category: deployment
+        prereqs: [api_service]
+        keywords: [cron, background jobs, scheduler, automation]
+        outcome: "Run AI tasks asynchronously"
+        mini_project: "Schedule a daily job that runs a small pipeline and writes logs"

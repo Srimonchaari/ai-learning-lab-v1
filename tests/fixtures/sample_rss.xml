@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0">
+  <channel>
+    <title>Sample Feed</title>
+
+    <item>
+      <title>Embeddings for semantic search</title>
+      <link>https://example.com/embeddings</link>
+      <description>Learn embeddings and vector search basics.</description>
+      <pubDate>Mon, 01 Jan 2026 10:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Unrelated Kubernetes post</title>
+      <link>https://example.com/k8s</link>
+      <description>Not about AI systems engineering.</description>
+      <pubDate>Mon, 01 Jan 2026 10:00:00 GMT</pubDate>
+    </item>
+
+    <item>
+      <title>Embeddings for semantic search</title>
+      <link>https://example.com/embeddings</link>
+      <description>Duplicate link item.</description>
+      <pubDate>Mon, 01 Jan 2026 10:00:00 GMT</pubDate>
+    </item>
+
+  </channel>
+</rss>
