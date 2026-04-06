@@ -1,210 +1,142 @@
-# Synapz — From Skills to Salary
+# Synapz — AI Learning Orchestration Engine
 
-> Daily, structured AI Engineering learning delivered by email, grounded in trusted sources and roadmap-first progression.
-
-## Why we built this
-
-Most AI learners struggle with one of three problems:
-- **Overwhelm:** too much scattered content across blogs, papers, videos, and repos.
-- **No progression:** learning random topics without prerequisites.
-- **No output:** consuming content but not building real engineering skills.
-
-**Synapz** solves this with a simple product idea:
-1. Keep a deterministic skill roadmap.
-2. Fetch fresh but controlled learning sources.
-3. Extract one focused learning unit daily.
-4. Deliver concise lesson + mini project + interview challenge by email.
-
-This repo is the **V1 orchestration engine** for that workflow.
+I built Synapz to solve a specific problem: people learning AI engineering have no structured path from "I've read about transformers" to "I can build and evaluate a RAG pipeline in production." Most learning resources optimize for content volume. Synapz optimizes for progression integrity.
 
 ---
 
-## Who benefits
+## What it does
 
-### Primary users
-- Students and fresh graduates targeting AI Engineer / ML Engineer roles.
-- Backend or full-stack developers transitioning into AI systems work.
-- Self-learners who need structured daily direction.
+Synapz is a CLI-driven orchestration system that:
 
-### Secondary users
-- Bootcamps and training programs that need curriculum scaffolding.
-- Engineering managers enabling internal AI upskilling tracks.
-
-### Business value
-- Better learning consistency and completion rates.
-- Faster transition from theory to deployable AI engineering tasks.
-- Repeatable, low-cost delivery of curated daily learning.
+1. Maintains a prerequisite-aware curriculum in a declarative YAML roadmap
+2. Selects the next eligible concept based on completion history (DAG traversal)
+3. Fetches relevant, recent content from curated RSS feeds (arXiv, AWS ML Blog, HuggingFace, etc.)
+4. Filters candidates by keyword relevance and deduplicates by URL
+5. Outputs a structured daily learning unit: concept brief, mini project, interview challenge
 
 ---
 
-## Market opportunity (problem framing)
+## Architecture
 
-The market need is driven by:
-- High demand for production-ready AI engineering talent.
-- Skills gap between prompt usage and systems-level AI implementation.
-- Need for affordable, structured upskilling vs expensive long-form programs.
+Single-direction data flow across three layers:
 
-Synapz positions itself as a **structured AI upskilling system**: practical, daily, source-grounded, and project-driven.
-
----
-
-## Product idea at a glance
-
-The concept (based on your architecture board) is:
-
-1. **Trusted Sources**
-   - Tech docs (Open Source, AWS, etc.)
-   - Research papers/blogs (arXiv and selected engineering blogs)
-   - Code repos/examples (GitHub)
-   - Standards/security sources (NIST, OWASP)
-
-2. **Smart Ingestion**
-   - Pull latest content via RSS/API fetchers.
-
-3. **Curriculum & Extraction**
-   - Map content to roadmap concepts and prerequisites.
-
-4. **Lesson Creation & Delivery**
-   - Generate one “AI Engineering Unit”:
-     - Short concept
-     - Hands-on mini project
-     - Reflection prompt
-     - Interview challenge
-
-5. **Email Delivery**
-   - Send daily unit to learner inbox.
+```
+Learner state (progress.json)
+     +
+Curriculum (roadmap.yaml)
+          │
+          ▼
+  Roadmap Engine     →  select_next_concept() traverses the prerequisite
+          │              graph; skips completed nodes, enforces prereqs
+          ▼
+  Feed Ingestion     →  feedparser over curated RSS packs
+          │              age-filtered (configurable window), capped per feed
+          ▼
+  Relevance Filter   →  regex keyword matching on title+summary
+          │              URL deduplication via seen-set
+          ▼
+  Daily Unit Output
+```
 
 ---
 
-## Current V1 scope in this repo
+## Key design decisions
 
-Implemented now:
-- Fixed roadmap in `roadmap.yaml`.
-- Progress tracking in `data/progress.json`.
-- Next-concept selection with prerequisite gating.
-- RSS feed fetching and keyword-based filtering.
-- CLI runner for daily unit candidate selection.
+**Deterministic concept selection over ML-based recommendation**
+A topological traversal of the prerequisite graph is more debuggable, trustworthy, and auditable than a scoring model at V1 scale. ML-based ranking would optimize for engagement signals that don't exist yet.
 
-Not yet implemented:
-- Auto lesson generation blocks.
-- Email sender integration.
-- UI dashboard and analytics.
-- Advanced ranking / source quality scoring.
+**Three-tier fallback fetch strategy**
+When strict feeds return zero relevant candidates, the system falls back to category-broader feeds, then to a global AI feed pool. This prevents silent failures without degrading curriculum integrity — the concept node stays fixed; only the source pool widens.
+
+**Keyword matching over embedding similarity**
+Regex matching is fast, deterministic, and interpretable. Cosine similarity over embeddings would add latency and infrastructure overhead for marginal recall improvement at this scale. The upgrade point is when keyword precision demonstrably degrades.
+
+**Progress state in flat JSON**
+Single-user V1 doesn't need a database. A flat JSON file is portable, auditable, and version-controllable. Migration cost later is low.
+
+---
+
+## Trade-offs explicitly accepted
+
+| Decision | What I gave up |
+|---|---|
+| YAML roadmap | Dynamic curriculum generation |
+| RSS-only ingestion | Paywalled and high-quality non-RSS sources |
+| Keyword filtering | Semantic recall across paraphrased content |
+| CLI-only interface | Lower barrier to non-developer users |
+| Flat JSON state | Multi-user support, concurrent writes |
 
 ---
 
 ## Repository structure
 
-```text
+```
 ai-learning-lab-v1/
 ├── src/
-│   ├── main.py          # CLI orchestration + feed fallback strategy
-│   ├── roadmap.py       # Roadmap load, flatten, next concept selection
-│   ├── progress.py      # Progress read/write + completion helper
-│   └── sources.py       # RSS fetch + keyword filter + dedupe
-├── tests/
-│   ├── test_roadmap.py
-│   ├── test_progress.py
-│   ├── test_sources.py
-│   └── fixtures/sample_rss.xml
-├── data/progress.json
-├── roadmap.yaml
-├── docs/
-│   ├── index.html       # GitHub Pages landing page
-│   └── styles.css       # Visual styling for product page
-├── requirements.txt
-└── README.md
+│   ├── main.py        # CLI entry point, feed packs, fallback strategy
+│   ├── roadmap.py     # Roadmap load, DAG traversal, concept selection
+│   ├── progress.py    # Progress read/write, completion helper
+│   └── sources.py     # Feed fetch, age filter, keyword match, dedup
+├── tests/             # Unit tests: roadmap, progress, source filtering
+├── data/progress.json # Learner state
+├── roadmap.yaml       # Curriculum definition with prerequisites
+└── docs/index.html    # GitHub Pages project page
 ```
-
----
-
-## Architecture (V1 runtime flow)
-
-1. Load roadmap (`roadmap.yaml`).
-2. Load completed concept IDs (`data/progress.json`).
-3. Select next eligible concept (prereqs satisfied, not completed).
-4. Resolve category-specific feed pack (`strict` / `broader`).
-5. Fetch and age-filter RSS entries.
-6. Filter entries by concept keywords and deduplicate links.
-7. Print daily node + candidate sources.
-8. Optionally mark concept complete (`--mark-done`).
-
-This preserves curriculum integrity and avoids trend-chasing random topics.
 
 ---
 
 ## How to run
 
-### 1) Install dependencies
-
 ```bash
 pip install -r requirements.txt
-```
 
-### 2) Execute daily runner
-
-```bash
+# Default: strict mode, 30-day window, 10 results
 python src/main.py
+
+# Widen source pool
+python src/main.py --mode broader
+
+# Advance progress after completing today's concept
+python src/main.py --mark-done
+
+# Inspect without writing state
+python src/main.py --dry-run
+
+# Audit feed configuration for current concept
+python src/main.py --list-feeds
 ```
 
-### 3) Useful CLI options
+All flags:
 
-```bash
-python src/main.py --help
-```
-
-Flags:
-- `--mode {strict,broader}`: source breadth.
-- `--dry-run`: no progress updates.
-- `--mark-done`: append current concept to completed list.
-- `--max-age-days N`: ignore old feed entries.
-- `--limit-per-feed N`: cap entries per feed.
-- `--max-results N`: cap filtered results.
-- `--list-feeds`: print feed packs for selected concept category.
+| Flag | Effect |
+|---|---|
+| `--mode {strict,broader}` | Source breadth for current concept category |
+| `--dry-run` | Print output without persisting progress |
+| `--mark-done` | Append current concept to completed list |
+| `--max-age-days N` | Ignore feed entries older than N days |
+| `--limit-per-feed N` | Cap entries fetched per feed URL |
+| `--max-results N` | Cap filtered output results |
+| `--list-feeds` | Print feed packs for selected concept category |
 
 ---
 
-## GitHub Pages (new docs site)
-
-A dedicated landing page is now available in:
-- `docs/index.html`
-- `docs/styles.css`
-
-### Enable in GitHub
-1. Go to repository **Settings → Pages**.
-2. Set source to **Deploy from a branch**.
-3. Select branch (e.g., `main`) and folder **`/docs`**.
-4. Save and open generated Pages URL.
-
-The page includes:
-- Product positioning and value proposition.
-- Beneficiaries + market section.
-- Architecture blocks and workflow timeline.
-- Clear CTA and project purpose narrative.
-
----
-
-## Testing
+## Tests
 
 ```bash
 pytest -q
 ```
 
-The suite validates roadmap parsing/selection, progress persistence, and source filtering behavior.
+Covers roadmap parsing and concept selection, progress persistence, and source filtering and deduplication.
 
 ---
 
-## Optimization roadmap (next)
+## What's next
 
-1. Move feed definitions to `feeds.yaml`.
-2. Add source scoring (recency, authority, concept relevance).
-3. Add lesson generation templates.
-4. Add email delivery provider integration.
-5. Add learner analytics (completion, streaks, topic heatmap).
-6. Add web admin UI/API for roadmap and source governance.
+In priority order:
 
----
-
-## Purpose summary
-
-Synapz exists to convert **daily effort into career-ready AI engineering capability** by combining curriculum discipline, trusted sources, and practical execution loops.
+1. Externalize feed definitions to `feeds.yaml` (currently hardcoded in `main.py`)
+2. Source quality scoring: recency + domain authority signals
+3. Lesson generation via structured LLM output (concept → project → challenge)
+4. Email delivery integration
+5. Learner analytics: completion trends, topic heatmap, streak tracking
+6. Web admin UI for roadmap and feed governance
