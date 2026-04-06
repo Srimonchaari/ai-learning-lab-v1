@@ -5,256 +5,284 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Synapz is a structured AI engineering learning system that converts trusted content into daily concept, project, and interview practice."
+      content="AI/ML engineer focused on system design, evaluation, and applied AI infrastructure. Builder of Synapz, a prerequisite-aware AI learning orchestration engine."
     />
-    <title>Synapz | Structured AI Engineering Learning</title>
+    <title>AI Engineering Portfolio</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
+    <a class="skip-link" href="#main">Skip to content</a>
 
+    <!-- ── Header ─────────────────────────────────────────── -->
     <header class="site-header">
-      <div class="container nav-wrap">
-        <div class="brand">
-          <div class="brand-mark" aria-hidden="true">S</div>
-          <div>
-            <p class="brand-title">Synapz</p>
-            <p class="brand-subtitle">From Skills to Salary</p>
-          </div>
-        </div>
-        <nav aria-label="Primary">
-          <ul class="nav-links">
-            <li><a href="#overview">Overview</a></li>
-            <li><a href="#capabilities">Capabilities</a></li>
-            <li><a href="#architecture">Architecture</a></li>
-            <li><a href="#workflow">Workflow</a></li>
-            <li><a href="#impact">Impact</a></li>
+      <div class="container header-inner">
+        <span class="logo">AI Engineering</span>
+        <nav aria-label="Primary navigation">
+          <ul class="nav-list">
+            <li><a href="#featured">Featured System</a></li>
+            <li><a href="#thinking">How I Think</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
       </div>
     </header>
 
-    <main id="main-content">
+    <main id="main">
+
+      <!-- ── Hero ───────────────────────────────────────────── -->
       <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow">AI Learning Infrastructure</p>
-            <h1>
-              Build real AI engineering skill through
-              <span class="text-highlight">daily structured execution</span>
-            </h1>
-            <p>
-              Synapz turns trusted technical sources and a prerequisite-aware curriculum into one
-              focused learning unit each day—so learners practice consistently instead of jumping
-              between disconnected topics.
-            </p>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#architecture">Explore Architecture</a>
-              <a class="btn btn-secondary" href="#capabilities">See Capabilities</a>
-            </div>
-          </div>
-
-          <aside class="hero-panel" aria-label="Daily learning unit">
-            <h2>Daily AI Engineering Unit</h2>
-            <ul>
-              <li><strong>Concept Brief:</strong> Topic aligned to current roadmap node.</li>
-              <li><strong>Mini Project:</strong> Hands-on build task for practical retention.</li>
-              <li><strong>Reflection Prompt:</strong> Short reasoning checkpoint.</li>
-              <li><strong>Interview Challenge:</strong> Applied scenario for job readiness.</li>
-            </ul>
-          </aside>
-        </div>
-      </section>
-
-      <section class="section" id="overview">
-        <div class="container narrow">
-          <h2>What Synapz is and why it matters</h2>
-          <p>
-            Most learners consume AI content in random order. That creates knowledge gaps,
-            inconsistent practice, and weak project outcomes. Synapz solves this by combining a
-            roadmap-first curriculum with trusted source ingestion and daily practical outputs.
+        <div class="container hero-inner">
+          <p class="label">Applied AI Engineer</p>
+          <h1>I design and build AI systems<br>that are reliable, evaluable, and maintainable.</h1>
+          <p class="hero-sub">
+            My focus is on the gap between AI prototypes and production-grade systems —
+            prerequisite-aware curriculum engines, structured retrieval pipelines,
+            and evaluation frameworks that let teams iterate with confidence.
           </p>
-          <p>
-            The result is a clear path from fundamentals to production-level AI engineering habits,
-            without getting lost in noise.
+          <div class="hero-links">
+            <a class="btn-primary" href="#featured">See featured system</a>
+            <a class="btn-ghost" href="https://github.com/srimonchaari/ai-learning-lab-v1" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Featured System ────────────────────────────────── -->
+      <section class="section" id="featured">
+        <div class="container">
+          <p class="label">Featured System</p>
+          <h2>Synapz — AI Learning Orchestration Engine</h2>
+          <p class="section-sub">
+            A CLI-driven pipeline that converts a prerequisite graph and curated RSS feeds
+            into a structured daily learning unit. Built to demonstrate how curriculum
+            integrity, content ingestion, and relevance filtering compose into a reliable system.
           </p>
+
+          <div class="system-grid">
+
+            <div class="system-pipeline">
+              <h3>Runtime pipeline</h3>
+              <ol class="pipeline-steps">
+                <li>
+                  <span class="step-num">01</span>
+                  <div>
+                    <strong>Learner state + roadmap</strong>
+                    <p>Load progress JSON and YAML curriculum. Traverse the prerequisite DAG to select the next eligible concept.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="step-num">02</span>
+                  <div>
+                    <strong>Feed ingestion</strong>
+                    <p>Fetch from curated RSS packs (arXiv, AWS ML, HuggingFace). Age-filter by configurable window, cap entries per feed.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="step-num">03</span>
+                  <div>
+                    <strong>Relevance filter</strong>
+                    <p>Regex keyword matching on title and summary. URL deduplication via seen-set. Three-tier fallback: strict → broader → global.</p>
+                  </div>
+                </li>
+                <li>
+                  <span class="step-num">04</span>
+                  <div>
+                    <strong>Daily unit output</strong>
+                    <p>Concept brief, mini project, interview challenge — one structured output per run.</p>
+                  </div>
+                </li>
+              </ol>
+            </div>
+
+            <div class="system-decisions">
+              <h3>Design decisions</h3>
+              <ul class="decision-list">
+                <li>
+                  <strong>Deterministic selection over ML ranking</strong>
+                  <p>Topological DAG traversal is more debuggable and auditable than a scoring model before engagement signals exist.</p>
+                </li>
+                <li>
+                  <strong>Keyword matching over embeddings</strong>
+                  <p>Fast, interpretable, zero infrastructure. The upgrade point is when keyword precision demonstrably degrades — not before.</p>
+                </li>
+                <li>
+                  <strong>Flat JSON state, not a database</strong>
+                  <p>Portable, auditable, version-controllable. Migration cost at scale is low and the complexity isn't warranted at V1.</p>
+                </li>
+                <li>
+                  <strong>Three-tier feed fallback</strong>
+                  <p>Prevents silent zero-result failures without compromising curriculum integrity. Concept node stays fixed; source pool widens.</p>
+                </li>
+              </ul>
+
+              <div class="tradeoffs">
+                <h3>Trade-offs accepted</h3>
+                <table class="tradeoff-table">
+                  <thead>
+                    <tr><th>Decision</th><th>What I gave up</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>YAML roadmap</td><td>Dynamic curriculum generation</td></tr>
+                    <tr><td>RSS ingestion</td><td>Paywalled high-quality sources</td></tr>
+                    <tr><td>Keyword filter</td><td>Semantic recall on paraphrased content</td></tr>
+                    <tr><td>Flat JSON state</td><td>Multi-user, concurrent writes</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <a class="btn-ghost small" href="https://github.com/srimonchaari/ai-learning-lab-v1" target="_blank" rel="noopener">View source on GitHub →</a>
+            </div>
+
+          </div>
         </div>
       </section>
 
-      <section class="section alt" id="capabilities">
+      <!-- ── How I Think ────────────────────────────────────── -->
+      <section class="section section-alt" id="thinking">
         <div class="container">
-          <div class="section-heading">
-            <h2>Core capabilities</h2>
-            <p>
-              Designed to keep learning focused, practical, and directly aligned with AI
-              engineering outcomes.
-            </p>
-          </div>
+          <p class="label">Engineering approach</p>
+          <h2>How I think about AI systems</h2>
 
-          <div class="card-grid">
-            <article class="card">
-              <h3>Roadmap-first progression</h3>
-              <p>Prerequisite-aware concepts ensure each topic builds on stable foundations.</p>
+          <div class="thinking-grid">
+            <article class="thinking-card">
+              <h3>Start with the evaluation question</h3>
+              <p>
+                Before choosing an architecture, I ask: how will I know if this is working?
+                A system without a clear evaluation method is a prototype, not a product.
+                I define success criteria — precision, latency, failure modes — before writing the first line of retrieval or generation code.
+              </p>
             </article>
-            <article class="card">
-              <h3>Trusted source ingestion</h3>
-              <p>Curated feeds reduce noise and keep learners connected to high-signal content.</p>
+            <article class="thinking-card">
+              <h3>Match complexity to evidence</h3>
+              <p>
+                I don't add vector stores, embedding models, or rerankers until keyword matching
+                demonstrably fails. Every layer of complexity adds failure surface.
+                The right architecture is the simplest one that satisfies the current
+                evaluation constraints.
+              </p>
             </article>
-            <article class="card">
-              <h3>Relevance filtering</h3>
-              <p>Keyword matching anchors external content to the learner’s active concept.</p>
+            <article class="thinking-card">
+              <h3>Make trade-offs explicit</h3>
+              <p>
+                Every design choice trades something. I document what was accepted and why —
+                deterministic vs. probabilistic, latency vs. recall, simplicity vs. coverage.
+                Explicit trade-offs are reviewable. Implicit ones become technical debt.
+              </p>
             </article>
-            <article class="card">
-              <h3>Daily actionable output</h3>
-              <p>Each unit combines concept clarity, practice task, and interview-style thinking.</p>
-            </article>
-            <article class="card">
-              <h3>Progress continuity</h3>
-              <p>Completion tracking keeps momentum visible and progression deterministic.</p>
-            </article>
-            <article class="card">
-              <h3>Extensible foundation</h3>
-              <p>Ready for ranking, personalization, richer lesson generation, and analytics.</p>
+            <article class="thinking-card">
+              <h3>Build for debuggability</h3>
+              <p>
+                AI systems fail silently. I design for observability from the start:
+                structured logging, deterministic seed behaviors, single-responsibility modules,
+                and fallback paths that surface which tier fired and why.
+              </p>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="section" id="architecture">
+      <!-- ── Projects ───────────────────────────────────────── -->
+      <section class="section" id="projects">
         <div class="container">
-          <div class="section-heading narrow">
-            <h2>Architecture</h2>
-            <p>
-              Synapz follows a simple end-to-end pipeline: learner state and trusted sources enter
-              the system, the orchestration layer selects and filters context, then the output is a
-              structured daily learning unit. Each component has one clear responsibility.
-            </p>
-          </div>
+          <p class="label">Selected work</p>
+          <h2>Projects</h2>
 
-          <div class="architecture-diagram" role="img" aria-label="Synapz system architecture flow from learner input to daily learning output">
-            <div class="arch-node">
-              <h3>1. Learner Input</h3>
-              <p>Progress state and learner context define where the journey continues.</p>
-            </div>
-            <div class="arch-arrow" aria-hidden="true">→</div>
+          <div class="project-grid">
 
-            <div class="arch-node">
-              <h3>2. Roadmap Engine</h3>
-              <p>Selects the next eligible concept using prerequisites and completion history.</p>
-            </div>
-            <div class="arch-arrow" aria-hidden="true">→</div>
-
-            <div class="arch-node">
-              <h3>3. Source Ingestion</h3>
-              <p>Fetches recent content from curated feeds and normalizes candidates.</p>
-            </div>
-            <div class="arch-arrow" aria-hidden="true">→</div>
-
-            <div class="arch-node">
-              <h3>4. Relevance Filter</h3>
-              <p>Matches content to concept keywords and removes duplicates.</p>
-            </div>
-            <div class="arch-arrow" aria-hidden="true">→</div>
-
-            <div class="arch-node">
-              <h3>5. Daily Unit Output</h3>
-              <p>Delivers concept focus, project action, and interview-oriented practice.</p>
-            </div>
-          </div>
-
-          <div class="architecture-notes">
-            <article>
-              <h3>Input layer</h3>
-              <p>Combines learner progress with a fixed curriculum so progression stays intentional.</p>
+            <article class="project-card project-card--featured">
+              <div class="project-meta">
+                <span class="project-tag">Orchestration</span>
+                <span class="project-tag">Python</span>
+                <span class="project-tag">RSS / NLP</span>
+              </div>
+              <h3>Synapz — AI Learning Orchestration Engine</h3>
+              <p>
+                Prerequisite-aware curriculum engine with RSS ingestion, keyword-based relevance
+                filtering, and a three-tier fallback strategy. Designed for deterministic
+                reproducibility and clear failure modes.
+              </p>
+              <ul class="project-facts">
+                <li>DAG traversal for concept selection with prereq gating</li>
+                <li>Configurable feed packs per curriculum category</li>
+                <li>Age filter + URL dedup + fallback tiers</li>
+                <li>Full unit test coverage: roadmap, progress, source modules</li>
+              </ul>
+              <a class="btn-ghost small" href="https://github.com/srimonchaari/ai-learning-lab-v1" target="_blank" rel="noopener">GitHub →</a>
             </article>
-            <article>
-              <h3>Processing layer</h3>
-              <p>Uses selection, fetch, and filter steps to transform raw content into relevant guidance.</p>
+
+            <article class="project-card project-card--placeholder">
+              <div class="project-meta">
+                <span class="project-tag">Retrieval</span>
+                <span class="project-tag">Evaluation</span>
+              </div>
+              <h3>[ Next project ]</h3>
+              <p>RAG evaluation framework, LLM-powered pipeline, or applied ML system. In progress.</p>
             </article>
-            <article>
-              <h3>Output layer</h3>
-              <p>Produces one clear daily unit that learners can immediately execute.</p>
-            </article>
+
           </div>
         </div>
       </section>
 
-      <section class="section alt" id="workflow">
+      <!-- ── Technical Strengths ────────────────────────────── -->
+      <section class="section section-alt" id="skills">
         <div class="container">
-          <div class="section-heading">
-            <h2>How the workflow operates daily</h2>
-            <p>
-              A repeatable loop that helps learners convert reading into action, and action into
-              measurable skill growth.
-            </p>
-          </div>
+          <p class="label">Technical strengths</p>
+          <h2>What I can do</h2>
 
-          <ol class="workflow-list">
-            <li>
-              <h3>1. Determine learning stage</h3>
-              <p>Identify the next concept based on roadmap order and prerequisite readiness.</p>
-            </li>
-            <li>
-              <h3>2. Pull fresh technical context</h3>
-              <p>Query curated feeds and keep only timely, high-signal updates.</p>
-            </li>
-            <li>
-              <h3>3. Align context to current objective</h3>
-              <p>Filter candidates against concept keywords to preserve curriculum relevance.</p>
-            </li>
-            <li>
-              <h3>4. Deliver one focused learning unit</h3>
-              <p>Give learners a practical package they can complete in a daily session.</p>
-            </li>
-          </ol>
-        </div>
-      </section>
-
-      <section class="section" id="impact">
-        <div class="container">
-          <div class="section-heading">
-            <h2>Who benefits most</h2>
-            <p>
-              Synapz is valuable wherever practical AI engineering capability needs to be built
-              consistently and at scale.
-            </p>
-          </div>
-
-          <div class="impact-grid">
-            <article>
-              <h3>Individual learners</h3>
-              <p>Students and transitioning developers get a guided, confidence-building path.</p>
-            </article>
-            <article>
-              <h3>Training programs</h3>
-              <p>Bootcamps and academies gain a repeatable daily curriculum backbone.</p>
-            </article>
-            <article>
-              <h3>Engineering teams</h3>
-              <p>Organizations can standardize internal upskilling and shorten AI ramp-up time.</p>
-            </article>
+          <div class="skills-grid">
+            <div class="skill-group">
+              <h3>AI System Design</h3>
+              <ul>
+                <li>Retrieval-augmented generation (RAG) architecture</li>
+                <li>Prerequisite graph and curriculum modeling</li>
+                <li>Evaluation framework design (offline + online)</li>
+                <li>Fallback and degradation strategies</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <h3>Applied ML Engineering</h3>
+              <ul>
+                <li>Feed ingestion, filtering, and deduplication pipelines</li>
+                <li>Keyword and semantic search (BM25, embeddings)</li>
+                <li>Structured LLM output and prompt engineering</li>
+                <li>arXiv, HuggingFace, and cloud ML APIs</li>
+              </ul>
+            </div>
+            <div class="skill-group">
+              <h3>Engineering practices</h3>
+              <ul>
+                <li>Python (typed, tested, modular)</li>
+                <li>CLI orchestration and configuration design</li>
+                <li>Unit testing with pytest</li>
+                <li>YAML-driven declarative config systems</li>
+              </ul>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section cta-section">
-        <div class="container cta-panel">
-          <div>
-            <h2>Turn daily learning into measurable AI engineering growth</h2>
-            <p>
-              Synapz helps learners stay consistent, build practical skills, and move from curiosity
-              to career readiness through a structured, high-signal learning loop.
-            </p>
+      <!-- ── Contact ────────────────────────────────────────── -->
+      <section class="section" id="contact">
+        <div class="container contact-inner">
+          <h2>Get in touch</h2>
+          <p class="section-sub">
+            Open to AI/ML engineering roles, applied AI research, and technical collaborations.
+          </p>
+          <div class="contact-links">
+            <a class="btn-primary" href="https://github.com/srimonchaari" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn-ghost" href="https://linkedin.com/in/srimonchaari" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn-ghost" href="mailto:hello@example.com">Email</a>
           </div>
-          <a class="btn btn-primary" href="#overview">Start with the Overview</a>
         </div>
       </section>
+
     </main>
 
     <footer class="site-footer">
-      <div class="container footer-wrap">
-        <p><strong>Synapz</strong> · Structured AI Engineering Learning</p>
-        <p>Focused curriculum. Trusted sources. Daily execution.</p>
+      <div class="container footer-inner">
+        <p>Built by Srimon Chaari &mdash; AI/ML Engineer</p>
+        <p><a href="https://github.com/srimonchaari/ai-learning-lab-v1">github.com/srimonchaari/ai-learning-lab-v1</a></p>
       </div>
     </footer>
   </body>
