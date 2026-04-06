@@ -3,27 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="AI/ML engineer focused on system design, evaluation, and applied AI infrastructure. Builder of Synapz, a prerequisite-aware AI learning orchestration engine."
-    />
-    <title>AI Engineering Portfolio</title>
+    <meta name="description" content="AI/ML Engineer specializing in system design, evaluation frameworks, and applied AI infrastructure. Builder of Synapz — a prerequisite-aware AI learning orchestration engine." />
+    <title>Srimon Chaari — AI/ML Engineer</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">Skip to main content</a>
 
-    <!-- ── Header ─────────────────────────────────────────── -->
+    <!-- ── Navigation ──────────────────────────────────────── -->
     <header class="site-header">
       <div class="container header-inner">
-        <span class="logo">AI Engineering</span>
+        <a href="#" class="logo">SC</a>
         <nav aria-label="Primary navigation">
           <ul class="nav-list">
+            <li><a href="#about">About</a></li>
             <li><a href="#featured">Featured System</a></li>
-            <li><a href="#thinking">How I Think</a></li>
+            <li><a href="#thinking">Engineering Principles</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#contact" class="nav-cta">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -31,259 +29,660 @@
 
     <main id="main">
 
-      <!-- ── Hero ───────────────────────────────────────────── -->
-      <section class="hero">
-        <div class="container hero-inner">
-          <p class="label">Applied AI Engineer</p>
-          <h1>I design and build AI systems<br>that are reliable, evaluable, and maintainable.</h1>
-          <p class="hero-sub">
-            My focus is on the gap between AI prototypes and production-grade systems —
-            prerequisite-aware curriculum engines, structured retrieval pipelines,
-            and evaluation frameworks that let teams iterate with confidence.
-          </p>
-          <div class="hero-links">
-            <a class="btn-primary" href="#featured">See featured system</a>
-            <a class="btn-ghost" href="https://github.com/srimonchaari/ai-learning-lab-v1" target="_blank" rel="noopener">GitHub</a>
+      <!-- ── Hero ─────────────────────────────────────────── -->
+      <section class="hero" id="hero">
+        <div class="container">
+          <div class="hero-inner">
+            <div class="hero-tag">Open to AI/ML Engineering roles</div>
+            <h1>
+              I build AI systems that are<br>
+              <span class="hero-accent">reliable, evaluable, and maintainable.</span>
+            </h1>
+            <p class="hero-desc">
+              Specializing in the gap between AI prototype and production system —
+              curriculum orchestration engines, structured retrieval pipelines,
+              and evaluation frameworks. I treat architecture decisions as first-class
+              engineering artifacts: documented, reasoned, and revisable.
+            </p>
+            <div class="hero-actions">
+              <a href="#featured" class="btn btn-primary">View Featured System</a>
+              <a href="https://github.com/srimonchaari" target="_blank" rel="noopener" class="btn btn-outline">GitHub Profile</a>
+              <a href="https://linkedin.com/in/srimonchaari" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn</a>
+            </div>
+          </div>
+
+          <!-- Signal bar: fast read for recruiters -->
+          <div class="signal-bar">
+            <div class="signal-item">
+              <span class="signal-num">4</span>
+              <span class="signal-label">Core modules built<br>&amp; unit tested</span>
+            </div>
+            <div class="signal-divider"></div>
+            <div class="signal-item">
+              <span class="signal-num">3-tier</span>
+              <span class="signal-label">Fallback strategy<br>for zero-result resilience</span>
+            </div>
+            <div class="signal-divider"></div>
+            <div class="signal-item">
+              <span class="signal-num">DAG</span>
+              <span class="signal-label">Prerequisite graph<br>for curriculum traversal</span>
+            </div>
+            <div class="signal-divider"></div>
+            <div class="signal-item">
+              <span class="signal-num">5+</span>
+              <span class="signal-label">Curated AI feed sources<br>(arXiv, AWS, HuggingFace)</span>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- ── Featured System ────────────────────────────────── -->
+      <!-- ── About ─────────────────────────────────────────── -->
+      <section class="section section-alt" id="about">
+        <div class="container about-grid">
+          <div class="about-main">
+            <p class="label">About</p>
+            <h2>Who I am</h2>
+            <p class="about-body">
+              I'm an AI/ML engineer who builds systems end-to-end: from problem framing and
+              architecture design to implementation, testing, and iteration. My work sits at the
+              intersection of applied AI and backend systems — I care about how pieces compose,
+              how failures surface, and how teams can evaluate whether a system is actually working.
+            </p>
+            <p class="about-body">
+              I built Synapz to solve a real problem I observed: learners have no structured path
+              through AI engineering fundamentals. The project demonstrates how I approach system
+              design — starting from the evaluation question, choosing the simplest architecture
+              that satisfies it, and documenting every trade-off explicitly.
+            </p>
+          </div>
+          <div class="about-focus">
+            <h3>What I focus on</h3>
+            <ul class="focus-list">
+              <li>
+                <span class="focus-icon">⬡</span>
+                <div>
+                  <strong>System architecture</strong>
+                  <p>Designing components with single responsibilities, clear interfaces, and observable failure modes.</p>
+                </div>
+              </li>
+              <li>
+                <span class="focus-icon">⬡</span>
+                <div>
+                  <strong>Evaluation-first design</strong>
+                  <p>Defining what "working" means before choosing an implementation. Every system needs a measurable success criterion.</p>
+                </div>
+              </li>
+              <li>
+                <span class="focus-icon">⬡</span>
+                <div>
+                  <strong>Explicit trade-off reasoning</strong>
+                  <p>Documenting what was chosen, what was given up, and when the decision should be revisited.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Featured System ──────────────────────────────── -->
       <section class="section" id="featured">
         <div class="container">
           <p class="label">Featured System</p>
           <h2>Synapz — AI Learning Orchestration Engine</h2>
-          <p class="section-sub">
-            A CLI-driven pipeline that converts a prerequisite graph and curated RSS feeds
-            into a structured daily learning unit. Built to demonstrate how curriculum
-            integrity, content ingestion, and relevance filtering compose into a reliable system.
+          <p class="section-desc">
+            A CLI-driven pipeline that converts a prerequisite graph and curated RSS feeds into
+            one structured AI engineering learning unit per day. The design enforces curriculum
+            integrity — concepts unlock only when prerequisites are complete, and content is
+            always anchored to the active learning objective.
           </p>
 
-          <div class="system-grid">
+          <!-- Visual pipeline -->
+          <div class="pipeline-visual" aria-label="System architecture pipeline">
+            <div class="pipe-node pipe-node--input">
+              <div class="pipe-node-label">Input Layer</div>
+              <div class="pipe-node-title">Learner State + Curriculum</div>
+              <div class="pipe-node-detail">
+                <code>progress.json</code> + <code>roadmap.yaml</code><br>
+                Completed IDs &amp; prerequisite graph
+              </div>
+            </div>
+            <div class="pipe-arrow">→</div>
+            <div class="pipe-node">
+              <div class="pipe-node-label">Selection</div>
+              <div class="pipe-node-title">Roadmap Engine</div>
+              <div class="pipe-node-detail">
+                DAG traversal<br>
+                Prereq enforcement<br>
+                Returns next concept
+              </div>
+            </div>
+            <div class="pipe-arrow">→</div>
+            <div class="pipe-node">
+              <div class="pipe-node-label">Ingestion</div>
+              <div class="pipe-node-title">Feed Fetcher</div>
+              <div class="pipe-node-detail">
+                Category-aware feed packs<br>
+                Age filter + per-feed cap<br>
+                Returns FeedItem list
+              </div>
+            </div>
+            <div class="pipe-arrow">→</div>
+            <div class="pipe-node pipe-node--accent">
+              <div class="pipe-node-label">Filtering</div>
+              <div class="pipe-node-title">3-Tier Fallback</div>
+              <div class="pipe-node-detail">
+                Strict → Broader → Global<br>
+                Keyword regex match<br>
+                URL deduplication
+              </div>
+            </div>
+            <div class="pipe-arrow">→</div>
+            <div class="pipe-node pipe-node--output">
+              <div class="pipe-node-label">Output</div>
+              <div class="pipe-node-title">Daily Unit</div>
+              <div class="pipe-node-detail">
+                Concept + mini project<br>
+                Filtered source list<br>
+                Interview challenge
+              </div>
+            </div>
+          </div>
 
-            <div class="system-pipeline">
-              <h3>Runtime pipeline</h3>
-              <ol class="pipeline-steps">
-                <li>
-                  <span class="step-num">01</span>
-                  <div>
-                    <strong>Learner state + roadmap</strong>
-                    <p>Load progress JSON and YAML curriculum. Traverse the prerequisite DAG to select the next eligible concept.</p>
-                  </div>
-                </li>
-                <li>
-                  <span class="step-num">02</span>
-                  <div>
-                    <strong>Feed ingestion</strong>
-                    <p>Fetch from curated RSS packs (arXiv, AWS ML, HuggingFace). Age-filter by configurable window, cap entries per feed.</p>
-                  </div>
-                </li>
-                <li>
-                  <span class="step-num">03</span>
-                  <div>
-                    <strong>Relevance filter</strong>
-                    <p>Regex keyword matching on title and summary. URL deduplication via seen-set. Three-tier fallback: strict → broader → global.</p>
-                  </div>
-                </li>
-                <li>
-                  <span class="step-num">04</span>
-                  <div>
-                    <strong>Daily unit output</strong>
-                    <p>Concept brief, mini project, interview challenge — one structured output per run.</p>
-                  </div>
-                </li>
-              </ol>
+          <!-- System detail tabs layout -->
+          <div class="system-detail-grid">
+
+            <!-- Architecture decisions -->
+            <div class="detail-block">
+              <h3>Architecture decisions</h3>
+              <div class="decision-item">
+                <div class="decision-header">
+                  <strong>Deterministic DAG traversal over ML ranking</strong>
+                  <span class="decision-badge">System Design</span>
+                </div>
+                <p>
+                  I chose topological traversal of the prerequisite graph over a scoring model.
+                  ML ranking requires engagement signals that don't exist at V1. Deterministic
+                  traversal is auditable, testable, and produces identical output for identical state —
+                  critical properties for a learning system where order matters.
+                </p>
+              </div>
+              <div class="decision-item">
+                <div class="decision-header">
+                  <strong>Three-tier fallback prevents silent failure</strong>
+                  <span class="decision-badge">Resilience</span>
+                </div>
+                <p>
+                  RSS feeds fail unpredictably. A hard failure when strict feeds return zero results
+                  would block the entire daily loop. The fallback chain widens the source pool
+                  (strict → category-broader → global AI feeds) while keeping the concept node fixed.
+                  Crucially, each tier logs its strategy name — observable, not silent.
+                </p>
+              </div>
+              <div class="decision-item">
+                <div class="decision-header">
+                  <strong>Keyword regex over embedding similarity</strong>
+                  <span class="decision-badge">Evaluation</span>
+                </div>
+                <p>
+                  Regex word-boundary matching is fast, deterministic, and interpretable.
+                  Embedding similarity adds API cost, latency, and a non-deterministic component.
+                  The upgrade criterion is explicit: when measured keyword recall degrades below
+                  an acceptable threshold across multiple concept categories.
+                </p>
+              </div>
+              <div class="decision-item">
+                <div class="decision-header">
+                  <strong>Flat JSON state over a database</strong>
+                  <span class="decision-badge">Simplicity</span>
+                </div>
+                <p>
+                  Single-user V1 reads the entire progress state on every run. A database adds
+                  connection management, schema migrations, and query complexity for a file
+                  that never has concurrent writers. Flat JSON is portable, version-controllable,
+                  and auditable. Migration path to a DB is cheap when multi-user support arrives.
+                </p>
+              </div>
             </div>
 
-            <div class="system-decisions">
-              <h3>Design decisions</h3>
-              <ul class="decision-list">
-                <li>
-                  <strong>Deterministic selection over ML ranking</strong>
-                  <p>Topological DAG traversal is more debuggable and auditable than a scoring model before engagement signals exist.</p>
-                </li>
-                <li>
-                  <strong>Keyword matching over embeddings</strong>
-                  <p>Fast, interpretable, zero infrastructure. The upgrade point is when keyword precision demonstrably degrades — not before.</p>
-                </li>
-                <li>
-                  <strong>Flat JSON state, not a database</strong>
-                  <p>Portable, auditable, version-controllable. Migration cost at scale is low and the complexity isn't warranted at V1.</p>
-                </li>
-                <li>
-                  <strong>Three-tier feed fallback</strong>
-                  <p>Prevents silent zero-result failures without compromising curriculum integrity. Concept node stays fixed; source pool widens.</p>
-                </li>
-              </ul>
+            <!-- Trade-offs + Code -->
+            <div class="detail-block">
+              <h3>Trade-offs accepted</h3>
+              <table class="detail-table">
+                <thead>
+                  <tr>
+                    <th>Decision</th>
+                    <th>Capability gained</th>
+                    <th>Given up</th>
+                    <th>Revisit when</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>YAML roadmap</td>
+                    <td>Auditability, version control</td>
+                    <td>Dynamic generation</td>
+                    <td>&gt;200 concepts</td>
+                  </tr>
+                  <tr>
+                    <td>RSS ingestion</td>
+                    <td>Zero-cost fresh content</td>
+                    <td>Paywalled sources</td>
+                    <td>Feed precision degrades</td>
+                  </tr>
+                  <tr>
+                    <td>Keyword filter</td>
+                    <td>Speed, interpretability</td>
+                    <td>Semantic recall</td>
+                    <td>Recall below threshold</td>
+                  </tr>
+                  <tr>
+                    <td>Flat JSON state</td>
+                    <td>Portable, auditable</td>
+                    <td>Concurrent writes</td>
+                    <td>Multi-user needed</td>
+                  </tr>
+                  <tr>
+                    <td>CLI-only</td>
+                    <td>No infra overhead</td>
+                    <td>Non-developer access</td>
+                    <td>User-facing product</td>
+                  </tr>
+                </tbody>
+              </table>
 
-              <div class="tradeoffs">
-                <h3>Trade-offs accepted</h3>
-                <table class="tradeoff-table">
-                  <thead>
-                    <tr><th>Decision</th><th>What I gave up</th></tr>
-                  </thead>
-                  <tbody>
-                    <tr><td>YAML roadmap</td><td>Dynamic curriculum generation</td></tr>
-                    <tr><td>RSS ingestion</td><td>Paywalled high-quality sources</td></tr>
-                    <tr><td>Keyword filter</td><td>Semantic recall on paraphrased content</td></tr>
-                    <tr><td>Flat JSON state</td><td>Multi-user, concurrent writes</td></tr>
-                  </tbody>
-                </table>
+              <div class="code-block">
+                <div class="code-block-label">Key algorithm — prerequisite-aware selection (roadmap.py)</div>
+                <pre><code>def select_next_concept(
+    concepts: List[Dict],
+    completed: List[str]
+) -> Dict:
+    for concept in concepts:
+        cid     = concept["id"]
+        prereqs = concept.get("prereqs", [])
+
+        if cid in completed:
+            continue  # already done
+
+        if all(p in completed for p in prereqs):
+            return concept  # first eligible node
+
+    raise RuntimeError(
+        "No eligible concept found."
+    )</code></pre>
               </div>
 
-              <a class="btn-ghost small" href="https://github.com/srimonchaari/ai-learning-lab-v1" target="_blank" rel="noopener">View source on GitHub →</a>
+              <a class="btn btn-outline btn-sm" href="https://github.com/srimonchaari/ai-learning-lab-v1" target="_blank" rel="noopener">View full source on GitHub →</a>
             </div>
 
           </div>
+
+          <!-- Module reference -->
+          <div class="module-reference">
+            <h3>Module reference</h3>
+            <div class="module-grid">
+              <div class="module-card">
+                <div class="module-file">roadmap.py</div>
+                <div class="module-role">Prerequisite graph engine</div>
+                <ul>
+                  <li>Parse and validate YAML curriculum</li>
+                  <li>Flatten multi-level structure into concept list</li>
+                  <li>Select next eligible concept by DAG traversal</li>
+                </ul>
+              </div>
+              <div class="module-card">
+                <div class="module-file">sources.py</div>
+                <div class="module-role">Feed ingestion &amp; filtering</div>
+                <ul>
+                  <li>Parse RSS feeds via feedparser</li>
+                  <li>Age-filter entries, cap per feed</li>
+                  <li>Keyword match + URL deduplication</li>
+                </ul>
+              </div>
+              <div class="module-card">
+                <div class="module-file">progress.py</div>
+                <div class="module-role">Learner state manager</div>
+                <ul>
+                  <li>Read/write progress JSON</li>
+                  <li>Mark concept complete (idempotent)</li>
+                  <li>Return completed ID set</li>
+                </ul>
+              </div>
+              <div class="module-card">
+                <div class="module-file">main.py</div>
+                <div class="module-role">CLI orchestration layer</div>
+                <ul>
+                  <li>Category-aware feed pack resolution</li>
+                  <li>Three-tier fallback strategy</li>
+                  <li>Structured logging + argument parsing</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      <!-- ── How I Think ────────────────────────────────────── -->
+      <!-- ── Engineering Principles ──────────────────────── -->
       <section class="section section-alt" id="thinking">
         <div class="container">
           <p class="label">Engineering approach</p>
           <h2>How I think about AI systems</h2>
+          <p class="section-desc">
+            Four principles that shape every architecture decision I make — from a solo CLI tool to a production-scale pipeline.
+          </p>
 
-          <div class="thinking-grid">
-            <article class="thinking-card">
+          <div class="principles-grid">
+            <article class="principle-card">
+              <div class="principle-num">01</div>
               <h3>Start with the evaluation question</h3>
               <p>
-                Before choosing an architecture, I ask: how will I know if this is working?
-                A system without a clear evaluation method is a prototype, not a product.
-                I define success criteria — precision, latency, failure modes — before writing the first line of retrieval or generation code.
+                Before choosing an architecture, I ask: <em>how will I know if this is working?</em>
+                A system without a defined evaluation method is a prototype, not a product.
+                For Synapz, the evaluation question was: "Does the selected content match the
+                active learning concept?" That determined the filtering approach — not technology preference.
               </p>
+              <div class="principle-example">
+                <strong>Applied in Synapz:</strong> Chose keyword regex over embeddings because
+                it made precision measurable and failures visible.
+              </div>
             </article>
-            <article class="thinking-card">
+
+            <article class="principle-card">
               <h3>Match complexity to evidence</h3>
+              <div class="principle-num">02</div>
               <p>
-                I don't add vector stores, embedding models, or rerankers until keyword matching
-                demonstrably fails. Every layer of complexity adds failure surface.
+                I don't add vector stores, rerankers, or LLM layers until simpler approaches
+                demonstrably fail. Every added component creates a new failure surface.
                 The right architecture is the simplest one that satisfies the current
-                evaluation constraints.
+                evaluation constraints — with a clear criterion for when to upgrade.
               </p>
+              <div class="principle-example">
+                <strong>Applied in Synapz:</strong> Flat JSON over SQLite. RSS over web scraping.
+                Regex over embeddings. Each chosen after evaluating the real trade-off.
+              </div>
             </article>
-            <article class="thinking-card">
-              <h3>Make trade-offs explicit</h3>
+
+            <article class="principle-card">
+              <div class="principle-num">03</div>
+              <h3>Make trade-offs explicit and reversible</h3>
               <p>
-                Every design choice trades something. I document what was accepted and why —
-                deterministic vs. probabilistic, latency vs. recall, simplicity vs. coverage.
-                Explicit trade-offs are reviewable. Implicit ones become technical debt.
+                Every design choice gives something up. I document what was chosen and why,
+                and — critically — define the condition under which the decision should be
+                revisited. Implicit trade-offs become untracked technical debt.
+                Explicit ones become architecture decisions you can defend in a review.
               </p>
+              <div class="principle-example">
+                <strong>Applied in Synapz:</strong> Each major choice has a "revisit when" criterion
+                — trigger for upgrading, not just a note that upgrading is possible.
+              </div>
             </article>
-            <article class="thinking-card">
-              <h3>Build for debuggability</h3>
+
+            <article class="principle-card">
+              <div class="principle-num">04</div>
+              <h3>Design for observable failure</h3>
               <p>
-                AI systems fail silently. I design for observability from the start:
-                structured logging, deterministic seed behaviors, single-responsibility modules,
-                and fallback paths that surface which tier fired and why.
+                AI systems fail silently — empty results, degraded quality, mismatched content —
+                without raising exceptions. I design observability in from the start:
+                structured logging at every layer, strategy names logged with each output,
+                and fallback tiers that surface which path fired and why.
               </p>
+              <div class="principle-example">
+                <strong>Applied in Synapz:</strong> The fallback strategy logs
+                <code>strategy=category_primary</code>, <code>category_fallback</code>, or
+                <code>global_fallback</code> on every run — so degradation is never invisible.
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <!-- ── Projects ───────────────────────────────────────── -->
+      <!-- ── Projects ─────────────────────────────────────── -->
       <section class="section" id="projects">
         <div class="container">
           <p class="label">Selected work</p>
           <h2>Projects</h2>
+          <p class="section-desc">Systems I've designed and built — each with documented architecture, decisions, and evaluation approach.</p>
 
-          <div class="project-grid">
+          <div class="projects-list">
 
-            <article class="project-card project-card--featured">
-              <div class="project-meta">
-                <span class="project-tag">Orchestration</span>
-                <span class="project-tag">Python</span>
-                <span class="project-tag">RSS / NLP</span>
+            <!-- Project 1: Featured -->
+            <article class="project-card project-featured">
+              <div class="project-left">
+                <div class="project-tags">
+                  <span class="tag">Python</span>
+                  <span class="tag">Orchestration</span>
+                  <span class="tag">RSS Ingestion</span>
+                  <span class="tag">DAG / Graph</span>
+                  <span class="tag">NLP Filtering</span>
+                </div>
+                <h3>Synapz — AI Learning Orchestration Engine</h3>
+                <p class="project-summary">
+                  A prerequisite-aware curriculum engine that ingests curated technical content
+                  and delivers one structured daily learning unit. Designed to enforce curriculum
+                  integrity — concepts unlock only when prerequisites are met, and retrieved
+                  content is always anchored to the active concept's keyword space.
+                </p>
+
+                <div class="project-highlight-grid">
+                  <div class="project-highlight">
+                    <strong>Problem</strong>
+                    <p>Learners jump between disconnected topics without prerequisite ordering, producing knowledge gaps that block production-level work.</p>
+                  </div>
+                  <div class="project-highlight">
+                    <strong>Solution</strong>
+                    <p>A DAG-based selection engine over a YAML curriculum, with category-aware feed ingestion and three-tier fallback to prevent silent failures.</p>
+                  </div>
+                  <div class="project-highlight">
+                    <strong>Key outcome</strong>
+                    <p>Every run produces a deterministic, reproducible output — same state always yields the same concept and the same source pool logic.</p>
+                  </div>
+                  <div class="project-highlight">
+                    <strong>Evaluation design</strong>
+                    <p>Precision measurable via keyword match rate. Strategy tier logged per run enables degradation tracking. Unit tests cover all three modules.</p>
+                  </div>
+                </div>
+
+                <div class="project-tech-detail">
+                  <strong>Technical highlights:</strong>
+                  <ul>
+                    <li>Frozen <code>FeedItem</code> dataclass for immutable feed entries</li>
+                    <li>Word-boundary regex prevents false positives (e.g. "rage" ≠ "rag")</li>
+                    <li>URL seen-set deduplication — not title hashing — handles cross-feed duplicates</li>
+                    <li>Structured logging at every pipeline stage with strategy attribution</li>
+                    <li>Full pytest suite with offline RSS fixtures for deterministic source tests</li>
+                  </ul>
+                </div>
+
+                <div class="project-actions">
+                  <a href="https://github.com/srimonchaari/ai-learning-lab-v1" target="_blank" rel="noopener" class="btn btn-primary btn-sm">View on GitHub</a>
+                  <a href="#featured" class="btn btn-outline btn-sm">Architecture deep-dive ↑</a>
+                </div>
               </div>
-              <h3>Synapz — AI Learning Orchestration Engine</h3>
-              <p>
-                Prerequisite-aware curriculum engine with RSS ingestion, keyword-based relevance
-                filtering, and a three-tier fallback strategy. Designed for deterministic
-                reproducibility and clear failure modes.
-              </p>
-              <ul class="project-facts">
-                <li>DAG traversal for concept selection with prereq gating</li>
-                <li>Configurable feed packs per curriculum category</li>
-                <li>Age filter + URL dedup + fallback tiers</li>
-                <li>Full unit test coverage: roadmap, progress, source modules</li>
-              </ul>
-              <a class="btn-ghost small" href="https://github.com/srimonchaari/ai-learning-lab-v1" target="_blank" rel="noopener">GitHub →</a>
-            </article>
-
-            <article class="project-card project-card--placeholder">
-              <div class="project-meta">
-                <span class="project-tag">Retrieval</span>
-                <span class="project-tag">Evaluation</span>
+              <div class="project-right">
+                <div class="project-stats">
+                  <div class="stat">
+                    <span class="stat-val">4</span>
+                    <span class="stat-desc">Core modules</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-val">3</span>
+                    <span class="stat-desc">Test suites</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-val">5+</span>
+                    <span class="stat-desc">Feed sources</span>
+                  </div>
+                  <div class="stat">
+                    <span class="stat-val">3-tier</span>
+                    <span class="stat-desc">Fallback chain</span>
+                  </div>
+                </div>
+                <div class="project-stack">
+                  <div class="stack-label">Stack</div>
+                  <div class="stack-items">
+                    <span>Python 3.10+</span>
+                    <span>feedparser</span>
+                    <span>PyYAML</span>
+                    <span>pytest</span>
+                    <span>argparse</span>
+                    <span>dataclasses</span>
+                    <span>re (stdlib)</span>
+                    <span>pathlib</span>
+                  </div>
+                </div>
               </div>
-              <h3>[ Next project ]</h3>
-              <p>RAG evaluation framework, LLM-powered pipeline, or applied ML system. In progress.</p>
             </article>
 
           </div>
         </div>
       </section>
 
-      <!-- ── Technical Strengths ────────────────────────────── -->
+      <!-- ── Skills ────────────────────────────────────────── -->
       <section class="section section-alt" id="skills">
         <div class="container">
-          <p class="label">Technical strengths</p>
-          <h2>What I can do</h2>
+          <p class="label">Technical depth</p>
+          <h2>What I bring</h2>
+          <p class="section-desc">Grounded in what I've built and the problems I've solved — not a keyword list.</p>
 
-          <div class="skills-grid">
-            <div class="skill-group">
+          <div class="skills-layout">
+            <div class="skill-area">
               <h3>AI System Design</h3>
-              <ul>
-                <li>Retrieval-augmented generation (RAG) architecture</li>
-                <li>Prerequisite graph and curriculum modeling</li>
-                <li>Evaluation framework design (offline + online)</li>
-                <li>Fallback and degradation strategies</li>
+              <ul class="skill-list">
+                <li>
+                  <strong>Retrieval pipeline architecture</strong>
+                  <span>Keyword-based and semantic retrieval, filtering strategies, deduplication</span>
+                </li>
+                <li>
+                  <strong>Prerequisite graph modeling</strong>
+                  <span>DAG design, topological traversal, curriculum state management</span>
+                </li>
+                <li>
+                  <strong>Fallback and degradation design</strong>
+                  <span>Multi-tier fallback, graceful degradation without silent failure</span>
+                </li>
+                <li>
+                  <strong>Evaluation framework design</strong>
+                  <span>Defining measurable success criteria, offline evaluation, observable failure modes</span>
+                </li>
               </ul>
             </div>
-            <div class="skill-group">
+
+            <div class="skill-area">
               <h3>Applied ML Engineering</h3>
-              <ul>
-                <li>Feed ingestion, filtering, and deduplication pipelines</li>
-                <li>Keyword and semantic search (BM25, embeddings)</li>
-                <li>Structured LLM output and prompt engineering</li>
-                <li>arXiv, HuggingFace, and cloud ML APIs</li>
+              <ul class="skill-list">
+                <li>
+                  <strong>Content ingestion pipelines</strong>
+                  <span>RSS/API ingestion, age filtering, feed normalization, category routing</span>
+                </li>
+                <li>
+                  <strong>NLP filtering</strong>
+                  <span>Keyword extraction, regex pattern design, BM25, embedding-based retrieval (design-level)</span>
+                </li>
+                <li>
+                  <strong>Structured LLM output</strong>
+                  <span>Prompt design for constrained generation, schema-grounded outputs, evaluation chains</span>
+                </li>
+                <li>
+                  <strong>ML tooling &amp; APIs</strong>
+                  <span>arXiv, HuggingFace ecosystem, AWS ML Blog, Google Cloud AI/ML, PyTorch</span>
+                </li>
               </ul>
             </div>
-            <div class="skill-group">
-              <h3>Engineering practices</h3>
-              <ul>
-                <li>Python (typed, tested, modular)</li>
-                <li>CLI orchestration and configuration design</li>
-                <li>Unit testing with pytest</li>
-                <li>YAML-driven declarative config systems</li>
+
+            <div class="skill-area">
+              <h3>Engineering Practices</h3>
+              <ul class="skill-list">
+                <li>
+                  <strong>Python (typed, modular, tested)</strong>
+                  <span>Type annotations, dataclasses, pathlib, argparse, structured logging</span>
+                </li>
+                <li>
+                  <strong>Test design</strong>
+                  <span>pytest, fixture-based offline testing, module isolation, edge case coverage</span>
+                </li>
+                <li>
+                  <strong>Declarative configuration</strong>
+                  <span>YAML-driven systems, config validation, separation of config from logic</span>
+                </li>
+                <li>
+                  <strong>CLI system design</strong>
+                  <span>Argument parsing, dry-run patterns, idempotent operations, observable output</span>
+                </li>
               </ul>
+            </div>
+          </div>
+
+          <!-- Technology tags -->
+          <div class="tech-tags-section">
+            <h3>Technologies</h3>
+            <div class="tech-tags">
+              <span>Python</span><span>feedparser</span><span>PyYAML</span>
+              <span>pytest</span><span>arXiv API</span><span>HuggingFace</span>
+              <span>AWS ML APIs</span><span>REST APIs</span><span>RSS/Atom</span>
+              <span>Git</span><span>GitHub Pages</span><span>Markdown</span>
+              <span>JSON</span><span>YAML</span><span>regex</span>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- ── Contact ────────────────────────────────────────── -->
+      <!-- ── Contact ───────────────────────────────────────── -->
       <section class="section" id="contact">
-        <div class="container contact-inner">
-          <h2>Get in touch</h2>
-          <p class="section-sub">
-            Open to AI/ML engineering roles, applied AI research, and technical collaborations.
-          </p>
-          <div class="contact-links">
-            <a class="btn-primary" href="https://github.com/srimonchaari" target="_blank" rel="noopener">GitHub</a>
-            <a class="btn-ghost" href="https://linkedin.com/in/srimonchaari" target="_blank" rel="noopener">LinkedIn</a>
-            <a class="btn-ghost" href="mailto:hello@example.com">Email</a>
+        <div class="container contact-section">
+          <div class="contact-text">
+            <p class="label">Get in touch</p>
+            <h2>Let's work together</h2>
+            <p class="section-desc">
+              I'm actively looking for AI/ML engineering roles — particularly applied AI,
+              ML platform engineering, and AI systems design. I'm most interested in teams
+              building products where evaluation rigor and system reliability actually matter.
+            </p>
+            <p class="contact-note">
+              Best reach: GitHub or LinkedIn. I respond within 24 hours.
+            </p>
+          </div>
+          <div class="contact-links-block">
+            <a href="https://github.com/srimonchaari" target="_blank" rel="noopener" class="contact-link">
+              <div class="contact-link-icon">GH</div>
+              <div>
+                <strong>GitHub</strong>
+                <span>github.com/srimonchaari</span>
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/srimonchaari" target="_blank" rel="noopener" class="contact-link">
+              <div class="contact-link-icon">LI</div>
+              <div>
+                <strong>LinkedIn</strong>
+                <span>linkedin.com/in/srimonchaari</span>
+              </div>
+            </a>
+            <a href="mailto:hello@example.com" class="contact-link">
+              <div class="contact-link-icon">@</div>
+              <div>
+                <strong>Email</strong>
+                <span>hello@example.com</span>
+              </div>
+            </a>
           </div>
         </div>
       </section>
 
     </main>
 
+    <!-- ── Footer ───────────────────────────────────────────── -->
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p>Built by Srimon Chaari &mdash; AI/ML Engineer</p>
-        <p><a href="https://github.com/srimonchaari/ai-learning-lab-v1">github.com/srimonchaari/ai-learning-lab-v1</a></p>
+        <div>
+          <strong>Srimon Chaari</strong> — AI/ML Engineer
+          <span class="footer-sep">·</span>
+          Built systems, not resumes.
+        </div>
+        <div class="footer-links">
+          <a href="https://github.com/srimonchaari/ai-learning-lab-v1" target="_blank" rel="noopener">Source on GitHub</a>
+          <a href="#hero">Back to top ↑</a>
+        </div>
       </div>
     </footer>
+
   </body>
 </html>
